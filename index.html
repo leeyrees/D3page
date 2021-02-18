@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dynamic HTML Page</title>
+        <script src="https://d3js.org/d3.v6.min.js"></script>
+        <style>
+          h1 {color:blue; font-size:40px;}
+          body {background-color:lightblue; text-align:center;}
+          p {font-family:verdana; font-size:15px;color: teal;}
+          .text{
+              color:black; font-size: 14pt;
+          }
+         
+        </style>
+    </head>
+    
+    <body>
+        <h1 title="Dynamic HTML PAge">Dynamic HTML Page</h1>
+        <div class="text">
+            Write something and click the buttons to change the color
+        </div>
+        <input id="Text">
+        <button onclick="insertext()">Insert some text</button>
+        
+        
+
+        <script>
+            function insertext(value) {
+                text = document.getElementById("Text").value
+                d3.select("body").insert("p").text(text);
+            }
+            function red() {
+                d3.selectAll("p").style("color","red");
+            }
+
+            function blue() {
+                d3.selectAll("p").style("color", "blue");
+            }
+        </script>
+
+         <div>
+            <button onclick="blue()">Blue</button>
+            <button onclick="red()">Red</button>
+        </div>
+    </body>
+
+</html>
